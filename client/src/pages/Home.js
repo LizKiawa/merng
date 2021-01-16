@@ -21,7 +21,7 @@ function Home() {
           <h1>Loading posts..</h1>
         ) : (
           posts &&
-          posts.map((post) => ( // for each post return the following
+          posts.map((post) => ( 
             <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
               <PostCard post={post} />
             </Grid.Column>
