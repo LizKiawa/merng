@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 function PostCard({
-  post: { body, createdAt, id, username, likeCount, commentCount, likes } // destructure post to body, createdAt, etc so u don't have to use const
+  post: { body, createdAt, id, username, likeCount, commentCount, likes }
 }) {
   function likePost() {
     console.log('Like post!!');
@@ -23,7 +23,7 @@ function PostCard({
         />
         <Card.Header>{username}</Card.Header>
         <Card.Meta as={Link} to={`/posts/${id}`}>
-          {moment(createdAt).fromNow(true)}  {/* fromNow() to display it like an hr ago, 5 hrs ago, etc */}
+          {moment(createdAt).fromNow(true)}
         </Card.Meta>
         <Card.Description>{body}</Card.Description>
       </Card.Content>
