@@ -57,7 +57,6 @@ module.exports = {
         registerInput: { username, email, password, confirmPassword }
       }
     ) {
-      // Validate user data
       const { valid, errors } = validateRegisterInput(
         username,
         email,
@@ -76,7 +75,6 @@ module.exports = {
           }
         });
       }
-      // hash password and create an auth token
       password = await bcrypt.hash(password, 12);
 
       const newUser = new User({

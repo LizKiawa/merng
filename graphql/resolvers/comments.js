@@ -18,7 +18,7 @@ module.exports = {
       const post = await Post.findById(postId);
 
       if (post) {
-        post.comments.unshift({  // to add latest comments on top of the comments object
+        post.comments.unshift({ 
           body,
           username,
           createdAt: new Date().toISOString()
@@ -32,12 +32,12 @@ module.exports = {
 
       const post = await Post.findById(postId);
 
-      if (post) {  // find comment with specific id and for owner of comment
+      if (post) { 
         const commentIndex = post.comments.findIndex((c) => c.id === commentId);
 
         if (post.comments[commentIndex].username === username) {
           post.comments.splice(commentIndex, 1);
-          await post.save(); // save post after deletion
+          await post.save();
           return post;
         } else {
           throw new AuthenticationError('Action not allowed');
